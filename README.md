@@ -42,13 +42,13 @@ En aquesta sessió donem a conèixer el codi base, s'expliquen les diferents par
 
 L'execució seguirà obligatòriament els següents paràmetres:
 
-**Client**
-* -p: port a on connectar-se
-
 **Servidor**
-
-* -h: IP o nom de la màquina
 * -p: port a on establir-se
+
+**Client**
+
+* -h: IP o nom de la màquina a on connectar-se
+* -p: port on trobar el servidor
 
 Podeu executar-ho usant la consola, o podeu editar les _run configurations_ del projecte tal i com es mostra a continuació:
 
