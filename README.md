@@ -16,9 +16,9 @@
 
 | Concepte                                                      | Tipus de nota | Pes |
 |---------------------------------------------------------------|---------------|-----|
-| Codi P1                                                       | Col·lectiva   |     |
-| Qüestionari cada 15 dies                                      | Individual    |     |
-| Avaluació de GitHub (Pull Requests, Feedback, continuïtat...) | Individual    |     |
+| Codi P1                                                       | Col·lectiva   | 0.5 |
+| Qüestionari cada 15 dies                                      | Individual    | 0.3 |
+| Avaluació de GitHub (Pull Requests, Feedback, continuïtat...) | Individual    | 0.2 |
 
 ## P1 - Client / Servidor
 
