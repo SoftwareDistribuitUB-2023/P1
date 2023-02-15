@@ -5,7 +5,7 @@
 | Eloi Puertas | epuertas@ub.edu | Teoria, dimecres de 15 a 17h. Pràctiques, dijous de 17 a 19h (Grup B) |
 | Blai Ras     | blai.ras@ub.edu | Pràctiques, dimecres de 17 a 19h (Grup F) i de 19 a 21h (Grup A)      |
 
-## Evaluació
+## Avaluació
 
 * Es treballarà amb GitHub Classroom, on cada parella tindrà un repositori. És obligatori que tota la feina realitzada es vegi **contrastada a GitHub de manera continuada**, és a dir, no pot haver-hi un "push" enorme el dia abans de l'entrega amb tot el codi de la P1. A l'apartat de P1 trobareu totes les directrius a seguir.
 
@@ -18,7 +18,7 @@
 |---------------------------------------------------------------|---------------|-----|
 | Codi P1                                                       | Col·lectiva   |     |
 | Qüestionari cada 15 dies                                      | Individual    |     |
-| Evaluació de GitHub (Pull Requests, Feedback, continuïtat...) | Individual    |     |
+| Avaluació de GitHub (Pull Requests, Feedback, continuïtat...) | Individual    |     |
 
 ## P1 - Client / Servidor
 
@@ -29,7 +29,7 @@ La practica 1 consisteix en implementar un joc senzill amb arquitectura Client-S
 * Podeu fer servir el IntelliJ IDEA amb llicència d'estudiant de la UB que integra en l'IDE  eines per a [Github](https://www.jetbrains.com/help/idea/github.html) i per [reformatar codi segons una guia d'estil](https://medium.com/swlh/configuring-google-style-guide-for-java-for-intellij-c727af4ef248)
 * La última sessió de cada pràctica serà de testing creuat.
 
-**Evaluació de GitHub**
+**Avaluació de GitHub**
 
 * El conjunt de **commits** d'un membre de la parella dins la seva branca s'hauran de revisar (**code review**) per l'altra membre abans de fer _merge_ a la branca principal. Es farà mitjançant[ **Pull Requests**,](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests) per tant no es podrà seguir desenvolupant fins que l'altre membre de la parella no acceptin els canvis en el codi proposats. Es poden fer tants PR com es vulgui, com mes _feedback_ entre la parella, millor.
 * Per acceptar els canvis, el revisor ha de llegir-se el codi, comprovar que segueix els estàndards i provar els tests.  En cas de trobar coses per millorar o TESTS que faltin, ho ha d'explicar en el comentaris del  **Pull Request** i no acceptar els canvis fins que l'altra ho millori. En cas de que estigui tot correcte ha de comentar els canvis realitzats i les proves que ha fet.  
