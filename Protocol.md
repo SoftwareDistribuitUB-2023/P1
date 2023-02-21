@@ -10,7 +10,7 @@ DAN DAN DISH neix d'una modificació del joc "Pedra-paper-tisores" on dues perso
 
 Originalment es juga de manera síncrona, cara-a-cara, on l'acció de bloquejar s'indica fent una creu sobre el pit amb els braços, la de disparar elevant les mans al cap (deixant a descobert el pit) i la de disparar simulant una pistola.
 
-El transcurs del joc va així: al principi, cap dels dos jugador té "bales a la recambra". Per tant, l'acció de disparar és il·legal. Per afegir bales, el jugador ha de decidir dur a terme l'acció de recarregar. Per facilitar les coses, la pistola pot admetre tantes bales com faci falta. L'acció de bloqueig es pot dur a terme en qualsevol estat i evita "morir" quan l'altre jugador decideix disparar. El joc s'acaba quan una de les decideix fer l'acció de "disparar" i l'altre, a la vegada, decideix recarregar. El jugador que ha disparat és el guanyador. 
+El transcurs del joc va així: al principi, cap dels dos jugador té "bales a la recambra". Per tant, l'acció de disparar és il·legal. Per afegir bales, el jugador ha de decidir dur a terme l'acció de recarregar. Per facilitar les coses, la pistola pot admetre tantes bales com faci falta. L'acció de bloqueig es pot dur a terme en qualsevol estat i evita "morir" quan l'altre jugador decideix disparar. El joc s'acaba quan un dels jugadors decideix fer l'acció de "disparar" i l'altre, a la vegada, decideix recarregar. El jugador que ha disparat és el guanyador. 
 
 Atenció! Si les dos persones disparen a la vegada, els dos sobreviuen i es segueix el joc. En el cas de que ambdós recarreguin, també.
 
@@ -30,9 +30,13 @@ RESULT   |6| S-C
 ERROR    |8| S-C
 
 
-La capçalera d'un missatge conté el codi d'operació associat amb aquest paquet i els paràmetres necessaris. En les capçaleres dels missages que es detallen a continuació els camps de tipus **string** representen cadenes de bytes codificats en Extended ASCII en format de xarxa (Big Endian). Així mateix, els camps amb tipus d'un o diversos bytes, aquests **bytes** són bytes en format de xarxa (Big Endian). 
+La capçalera d'un missatge conté el codi d'operació associat amb aquest paquet i els paràmetres necessaris. Els tipus de dades de les capçaleres es detallen a continuació:
+-  Els camps de tipus **string** representen cadenes de bytes codificats en UTF8 (2 bytes) de JAVA acabat amb un últim byte 0 que és un byte en format de xarxa (Big Endian)). 
+-  Així mateix, els camps amb tipus d'un o diversos bytes, aquests **bytes** són bytes en format de xarxa (Big Endian). 
+-  Els camps de tipus **int32** és un sencer de 32 bits (4 bytes) en format xarxa 
 
--   El paquet **HELLO** (codi d'operació 1) té el format que es mostra en la Figura 1, on *id* és un int32 bytes en format xarxa i on *Name* és el nom del jugador com a string (string representa una cadena de bytes codificats en Extended ASCII en format de xarxa (Big Endian) acabat amb un últim byte 0 que és un byte en format de xarxa (Big Endian)). Aquest byte és necessari ja que indica el final del nom, el qual no sempre té la mateixa longitud ja que depèn del client, és clar.
+Les trames o paquets es detallen a continuadció:
+-   El paquet **HELLO** (codi d'operació 1) té el format que es mostra en la Figura 1, on *id* és un **int32** i on *Name* és el nom del jugador com a **string**
 
                                  1 byte    int32   string    1 byte     
                                 -----------------------------------
@@ -40,7 +44,7 @@ La capçalera d'un missatge conté el codi d'operació associat amb aquest paque
                                 -----------------------------------
                                     Figura 1: Missatge HELLO
  
-- El paquet **READY** (codi operació 2) té el format que es mostra en la Figura 2, on *id* és un int32 bytes en format xarxa. 
+- El paquet **READY** (codi operació 2) té el format que es mostra en la Figura 2, on *id* és un **int32**
 
                                  1 byte    int32       
                                 ----------------------------------
@@ -49,7 +53,7 @@ La capçalera d'un missatge conté el codi d'operació associat amb aquest paque
        
                                     Figura 2: Missatge READY
 
-- El paquet **PLAY** (codi operació 3) té el format que es mostra en la Figura 3, on *id* és un int32 bytes en format xarxa. 
+- El paquet **PLAY** (codi operació 3) té el format que es mostra en la Figura 3, on *id* és un **int32**.
    
                                   1 byte    int32       
                                 ----------------------------------
@@ -68,26 +72,26 @@ La capçalera d'un missatge conté el codi d'operació associat amb aquest paque
                                     Figura 4: Missatge ADMIT
 
 
-- El paquet **ACTION** (codi operació 5) té el format que es mostra en la Figura 5, on *Action* és una paraula com a string (string representa una cadena de bytes codificats en Extended ASCII en format de xarxa (Big Endian) de longitud 5.
+- El paquet **ACTION** (codi operació 5) té el format que es mostra en la Figura 5, on *Action* és una paraula com a una cadena de 5 caràcters en format UTF (2 bytes)
 
 
-                                  1 byte    5 byte       
+                                  1 byte    5*2 bytes       
                                 ------------------------
                                 | Opcode |  Action  | 
                                 ------------------------
                                     Figura 5: Missatge WORD
 
-- El paquet **RESULT** (codi operació 6) té el format que es mostra en la Figura 6, on *Result* és un codi com a string (string representa una cadena de bytes codificats en Extended ASCII en format de xarxa (Big Endian) de longitud 5.
+- El paquet **RESULT** (codi operació 6) té el format que es mostra en la Figura 6, on *Result* és un codi com a una cadena de 5 caràcters en format UTF (2 bytes)
 
 
-                                  1 byte    5 byte     1 byte     
+                                  1 byte    5*2 bytes     1 byte     
                                 -----------------------------------
                                 | Opcode |  Result   |  Flag   
                                 -----------------------------------
                                     Figura 6: Missatge RESULT
 
 
-- El paquet **ERROR** (codi operació 8) té el format que es mostra en la Figura 8, on *ErrCode* és és un byte en format xarxa  i on *Msg* és un codi com a string (string representa una cadena de bytes codificats en Extended ASCII en format de xarxa (Big Endian) acabat amb un últim byte 0 que és un byte en format de xarxa (Big Endian)).
+- El paquet **ERROR** (codi operació 8) té el format que es mostra en la Figura 8, on *ErrCode* és és un byte en format xarxa  i on *Msg* és un codi com a string.
   
 
                                 1 byte    1 byte      string  1 byte
@@ -131,7 +135,7 @@ A continuació el Client enviarà el seu moviment **ACTION**:
 
 C -----ACTION (Word)-----> S
 
-Aquest moviment estarà representat per una paraula de 4 lletres:
+Aquest moviment estarà representat per una paraula de 5 lletres:
 
 | ACTION | Moviment   |
 |--------|------------|
@@ -181,40 +185,40 @@ Exemple de partida. Els espais s'han posat per clairificar els missatges, però 
     
     //Client wins
 
-    HELLO  C -------1 17845 Blai 0--> S
+    HELLO  C -------1 17845 Blai0--> S
     READY  C <------2 17845 --------- S
     PLAY   C -------3 17845 --------> S
     ADMIT  C <------4 1 ------------- S
     ACTION C -------5 CHARG --------> S
-    RESULT C <------6 PLUS 0 -------- S
+    RESULT C <------6 PLUS0 --------- S
     ACTION C -------5 BLOCK --------> S
-    RESULT C <------6 PLUS 0 -------- S
+    RESULT C <------6 PLUS0 --------- S
     ACTION C -------5 SHOOT --------> S
-    RESULT C <------6 ENDS 1 -------- S
+    RESULT C <------6 ENDS1 --------- S
     
     //Juguen un altre cop. Client intenta recarregar dos cops i Servidor dispara & guanya.
 
     PLAY   C -------3 17845 --------> S
     ADMIT  C <------4 1 ------------- S
     ACTION C -------5 CHARG --------> S
-    RESULT C <------6 PLUS 0 -------- S
-    ACTION C -------5 PLUS 0 --------> S
-    RESULT C <------6 ENDS 0 -------- S
+    RESULT C <------6 PLUS0 --------- S
+    ACTION C -------5 CHARG --------> S
+    RESULT C <------6 ENDS0 --------- S
 
     //Juguen un altre cop. Un bug al codi de Client fa que dispari sense bales.
     //Servidor envia error i segueixen jugant. Client intenta recarregar dos cops i Servidor dispara & guanya.  
     PLAY   C -------3 17845 --------> S
     ADMIT  C <------4 1 ------------- S
     ACTION C -------5 CHARG --------> S
-    RESULT C <------6 PLUS 0 -------- S
+    RESULT C <------6 PLUS0 --------- S
     ACTION C -------5 SHOOT --------> S
-    RESULT C <------6 DRAW 0 -------- S
+    RESULT C <------6 DRAW0 --------- S
     ACTION C -------5 SHOOT --------> S
-    ERROR  C <------8 3,"Missatge fora de protocol" 0 -------- S
+    ERROR  C <------8 3,"Missatge fora de protocol"0 -------- S
     ACTION C -------5 CHARG --------> S
-    RESULT C <------6 PLUS 0 -------- S
+    RESULT C <------6 PLUS0 --------- S
     ACTION C -------5 CHARG --------> S
-    RESULT C <------6 ENDS 0 -------- S
+    RESULT C <------6 ENDS0 --------- S
     
     C- [conexion closed]
     S- [conexion closed]
@@ -227,4 +231,8 @@ L'objectiu de la pràctica és programar un Client & Servidor funcional amb els 
 Multi-threading
 ===============
 
-Un cop s'expliqui a teoria el multi-threading, Servidor s'haurà de canviar per a soportar diferents Clients simultàniament, és a dir, jugar diferents partides a la vegada.
+Un cop s'expliqui a teoria el multi-threading, Servidor s'haurà de canviar per a soportar diferents Clients simultàniament, és a dir, jugar diferents partides a la vegada. 
+
+Mode 2 jugadors
+================
+També s'haurà de poder fer que juguin dos jugadors, fent el servidor de proxy entre els dos jugadors. 
