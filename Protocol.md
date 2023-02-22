@@ -29,7 +29,7 @@ PLAY     |3| C-S
 ADMIT    |4| S-C
 ACTION   |5| C-S
 RESULT   |6| S-C
-ERROR    |8| S-C
+ERROR    |8| S-C / C-S
 
 
 La capçalera d'un missatge conté el codi d'operació associat amb aquest paquet i els paràmetres necessaris. Els tipus de dades de les capçaleres es detallen a continuació:
@@ -40,9 +40,9 @@ La capçalera d'un missatge conté el codi d'operació associat amb aquest paque
 Les trames o paquets es detallen a continuadció:
 -   El paquet **HELLO** (codi d'operació 1) té el format que es mostra en la Figura 1, on *id* és un **int32** i on *Name* és el nom del jugador com a **string**
 
-                                 1 byte    int32   string    1 byte     
+                                 1 byte    int32   string    2 byte     
                                 -----------------------------------
-                                | Opcode |  id   |  Name    |  0  |
+                                | Opcode |  id   |  Name    | 00  |
                                 -----------------------------------
                                     Figura 1: Missatge HELLO
  
@@ -96,9 +96,9 @@ Les trames o paquets es detallen a continuadció:
 - El paquet **ERROR** (codi operació 8) té el format que es mostra en la Figura 8, on *ErrCode* és és un byte en format xarxa  i on *Msg* és un codi com a string.
   
 
-                                1 byte    1 byte      string  1 byte
+                                1 byte    1 byte      string  2 byte
                                 -------------------------------------
-                                | Opcode |  ErrCode    | Msg | 0
+                                | Opcode |  ErrCode    | Msg | 00
                                 -------------------------------------
                                     Figura 8: Missatge ERROR
 
@@ -151,15 +151,17 @@ C <------ RESULT (Result, Flag) --------- S
 
 Aquest resultat pot ser:
 
-| RESULT | Flag | Signficat                             |
-|--------|------|---------------------------------------|
-| ENDS   | 0    | Guanya Servidor                       |
-| ENDS   | 1    | Guanya Client                         |
-| PLUS   | 0    | Servidor ha pogut recarregar una bala |
-| PLUS   | 1    | Client ha pogut recarregar una bala   |
-| DRAW   | 0    | Ambdós jugadors han disparat          |
-| SAFE   | 0    | Servidor ha bloquejat una bala        |
-| SAFE   | 1    | Client ha bloquejat una bala          |
+| RESULT | Flag | Signficat                                         |
+|--------|------|---------------------------------------------------|
+| ENDS   | 0    | Guanya Servidor                                   |
+| ENDS   | 1    | Guanya Client                                     |
+| PLUS   | 0    | Servidor ha pogut recarregar una bala             |
+| PLUS   | 1    | Client ha pogut recarregar una bala               |
+| PLUS   | 1    | Client ha pogut recarregar una bala               |
+| PLUS   | 2    | Client i Servidor han pogut recarregar una bala   |
+| DRAW   | 0    | Ambdós jugadors han disparat                      |
+| SAFE   | 0    | Servidor ha bloquejat una bala                    |
+| SAFE   | 1    | Client ha bloquejat una bala                      |
 
 "Flag" està il·lustrat com una columna per a que s'entengui millor, però si us fixeu al protocol, la trama és de 10 bytes, per tant, aquest "flag" anirà dintre de "result".
 
@@ -190,7 +192,7 @@ Exemple de partida. Els espais s'han posat per clairificar els missatges, però 
     
     //Client wins
 
-    HELLO  C -------1 17845 Blai0--> S
+    HELLO  C -------1 17845 Blai00--> S
     READY  C <------2 17845 --------- S
     PLAY   C -------3 17845 --------> S
     ADMIT  C <------4 1 ------------- S
