@@ -14,6 +14,8 @@ El transcurs del joc va així: al principi, cap dels dos jugador té "bales a la
 
 Atenció! Si les dos persones disparen a la vegada, els dos sobreviuen i es segueix el joc. En el cas de que ambdós recarreguin, també.
 
+[Mireu aquesta "demo"](https://ariadnacortesdanes.github.io/StormBraining/) per a inspiració. No està gairé ben programada però que simula part del joc que farem nosaltres.
+
 Missatges
 =========
 El client (c) i el servidor (s) suporta  tipus de missatges amb els
