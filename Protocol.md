@@ -234,7 +234,7 @@ Exemple de partida. Els espais s'han posat per clairificar els missatges, però 
     ACTION C -------5 CHARG --------> S
     RESULT C <------6 PLUS1 --------- S
     ACTION C -------5 SHOOT --------> S
-    RESULT C <------6 ENDS10 -------- S
+    RESULT C <------6 ENDS1 --------- S
     
     C- [conexion closed]
     S- [conexion closed]
