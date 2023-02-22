@@ -221,6 +221,21 @@ Exemple de partida. Els espais s'han posat per clairificar els missatges, però 
     ACTION C -------5 CHARG --------> S
     RESULT C <------6 ENDS0 --------- S
     
+    //Juguen un quart cop. Servidor i Client es bloquejen varies bales
+    //Guanya Client al final
+    PLAY   C -------3 17845 --------> S
+    ADMIT  C <------4 1 ------------- S
+    ACTION C -------5 CHARG --------> S
+    RESULT C <------6 PLUS0 --------- S
+    ACTION C -------5 SHOOT --------> S
+    RESULT C <------6 AVOID0 -------- S
+    ACTION C -------5 BLOCK --------> S
+    RESULT C <------6 AVOID1 -------- S
+    ACTION C -------5 CHARG --------> S
+    RESULT C <------6 PLUS1 --------- S
+    ACTION C -------5 SHOOT --------> S
+    RESULT C <------6 ENDS10 -------- S
+    
     C- [conexion closed]
     S- [conexion closed]
 
