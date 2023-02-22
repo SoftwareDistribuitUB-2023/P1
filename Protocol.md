@@ -84,10 +84,10 @@ Les trames o paquets es detallen a continuadció:
 - El paquet **RESULT** (codi operació 6) té el format que es mostra en la Figura 6, on *Result* és un codi com a una cadena de 5 caràcters en format UTF (2 bytes)
 
 
-                                  1 byte    5*2 bytes     1 byte     
-                                -----------------------------------
-                                | Opcode |  Result   |  Flag   
-                                -----------------------------------
+                                  1 byte    5*2 bytes        
+                                --------------------------
+                                | Opcode |  Result   |  
+                                --------------------------
                                     Figura 6: Missatge RESULT
 
 
@@ -158,6 +158,8 @@ Aquest resultat pot ser:
 | DRAW   | 0    | Ambdós jugadors han disparat          |
 | SAFE   | 0    | Servidor ha bloquejat una bala        |
 | SAFE   | 1    | Client ha bloquejat una bala          |
+
+"Flag" està il·lustrat com una columna per a que s'entengui millor, però si us fixeu al protocol, la trama és de 10 bytes, per tant, aquest "flag" anirà dintre de "result".
 
 No tots els results són possibles després de certes actions. Penseu bé quins escenaris planteja cada "action" i programeu el "result" corresponent. Òbviament, servidor no pot cambiar la seva resposta després de rebre "l'action" de client. 
 
