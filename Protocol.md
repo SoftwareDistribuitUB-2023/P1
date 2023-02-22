@@ -25,7 +25,7 @@ HELLO    |1| C-S
 READY    |2| S-C
 PLAY     |3| C-S
 ADMIT    |4| S-C
-ACTION   |5| C-S / S-C
+ACTION   |5| C-S
 RESULT   |6| S-C
 ERROR    |8| S-C
 
