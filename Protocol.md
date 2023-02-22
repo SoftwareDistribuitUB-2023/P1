@@ -157,7 +157,6 @@ Aquest resultat pot ser:
 | ENDS   | 1    | Guanya Client                                     |
 | PLUS   | 0    | Servidor ha pogut recarregar una bala             |
 | PLUS   | 1    | Client ha pogut recarregar una bala               |
-| PLUS   | 1    | Client ha pogut recarregar una bala               |
 | PLUS   | 2    | Client i Servidor han pogut recarregar una bala   |
 | DRAW   | 0    | Ambdós jugadors han disparat                      |
 | SAFE   | 0    | Servidor ha bloquejat una bala                    |
