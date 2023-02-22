@@ -156,8 +156,8 @@ Aquest resultat pot ser:
 | PLUS   | 0    | Servidor ha pogut recarregar una bala |
 | PLUS   | 1    | Client ha pogut recarregar una bala   |
 | DRAW   | 0    | Ambdós jugadors han disparat          |
-| AVOID  | 0    | Servidor ha bloquejat una bala        |
-| AVOID  | 1    | Client ha bloquejat una bala          |
+| SAFE   | 0    | Servidor ha bloquejat una bala        |
+| SAFE   | 1    | Client ha bloquejat una bala          |
 
 No tots els results són possibles després de certes actions. Penseu bé quins escenaris planteja cada "action" i programeu el "result" corresponent. Òbviament, servidor no pot cambiar la seva resposta després de rebre "l'action" de client. 
 
@@ -228,9 +228,9 @@ Exemple de partida. Els espais s'han posat per clairificar els missatges, però 
     ACTION C -------5 CHARG --------> S
     RESULT C <------6 PLUS0 --------- S
     ACTION C -------5 SHOOT --------> S
-    RESULT C <------6 AVOID0 -------- S
+    RESULT C <------6 SAFE0 --------- S
     ACTION C -------5 BLOCK --------> S
-    RESULT C <------6 AVOID1 -------- S
+    RESULT C <------6 SAFE1 --------- S
     ACTION C -------5 CHARG --------> S
     RESULT C <------6 PLUS1 --------- S
     ACTION C -------5 SHOOT --------> S
