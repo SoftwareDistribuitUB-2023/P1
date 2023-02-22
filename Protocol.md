@@ -33,7 +33,7 @@ ERROR    |8| S-C / C-S
 
 
 La capçalera d'un missatge conté el codi d'operació associat amb aquest paquet i els paràmetres necessaris. Els tipus de dades de les capçaleres es detallen a continuació:
--  Els camps de tipus **string** representen cadenes de bytes codificats en UTF8 (2 bytes) de JAVA acabat amb un últim byte 0 que és un byte en format de xarxa (Big Endian)). 
+-  Els camps de tipus **string** representen cadenes de bytes codificats en UTF8 (2 bytes) de JAVA acabat amb dos últims bytes "00" en format de xarxa (Big Endian)). 
 -  Així mateix, els camps amb tipus d'un o diversos bytes, aquests **bytes** són bytes en format de xarxa (Big Endian). 
 -  Els camps de tipus **int32** és un sencer de 32 bits (4 bytes) en format xarxa 
 
