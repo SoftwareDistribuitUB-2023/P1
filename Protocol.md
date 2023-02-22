@@ -149,14 +149,15 @@ C <------ RESULT (Result, Flag) --------- S
 
 Aquest resultat pot ser:
 
-| RESULT | Flag | Signficat                       |
-|--------|------|---------------------------------|
-| ENDS   | 0    | Guanya Servidor                 |
-| ENDS   | 1    | Guanya Client                   |
-| PLUS   | 0    | Servidor ha recarregat una bala |
-| PLUS   | 1    | Client ha recarregat una bala   |
-| DRAW   | 0    | Ambdós jugadors han disparat    |
-| SAFE   | 0    | Servidor a bloquejat            |
+| RESULT | Flag | Signficat                             |
+|--------|------|---------------------------------------|
+| ENDS   | 0    | Guanya Servidor                       |
+| ENDS   | 1    | Guanya Client                         |
+| PLUS   | 0    | Servidor ha pogut recarregar una bala |
+| PLUS   | 1    | Client ha pogut recarregar una bala   |
+| DRAW   | 0    | Ambdós jugadors han disparat          |
+| AVOID  | 0    | Servidor ha bloquejat una bala        |
+| AVOID  | 1    | Client ha bloquejat una bala          |
 
 No tots els results són possibles després de certes actions. Penseu bé quins escenaris planteja cada "action" i programeu el "result" corresponent. Òbviament, servidor no pot cambiar la seva resposta després de rebre "l'action" de client. 
 
