@@ -161,7 +161,7 @@ Aquest resultat pot ser:
 | DRAW   | 0    | Ambdós jugadors han disparat                      |
 | SAFE   | 0    | Servidor ha bloquejat una bala                    |
 | SAFE   | 1    | Client ha bloquejat una bala                      |
-| SAFE   | 2    | Ambdós jugadors han disparat                      |
+| SAFE   | 2    | Ambdós jugadors han bloquejat                     |
 
 "Flag" està il·lustrat com una columna per a que s'entengui millor, però si us fixeu al protocol, la trama és de 10 bytes, per tant, aquest "flag" anirà dintre de "result".
 
